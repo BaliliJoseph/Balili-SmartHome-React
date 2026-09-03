@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import DashboardScreen from './screens/DashboardScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import DevicesScreen from './screens/DevicesScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: { backgroundColor: '#ffffff' },
+          headerShadowVisible: false,
+          headerTitleStyle: { fontWeight: '800', fontSize: 20 },
+        }}
+      >
+        <Stack.Screen
+          name="Dashboard"
+          component={DashboardScreen}
+          options={{ title: 'Smart Home' }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{ title: 'Settings' }}
+        />
+        <Stack.Screen
+          name="Devices"
+          component={DevicesScreen}
+          options={{ title: 'Devices' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
