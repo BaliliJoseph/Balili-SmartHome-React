@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView, Pressable } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function DashboardScreen({ navigation }) {
   return (
-    <SafeAreaView style={styles.safe}>
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <SafeAreaView style={styles.safe} edges={['top']}>
+      <View style={styles.container} contentContainerStyle={styles.content}>
         
     {/* Title + Settings icon row */}
         <View style={styles.titleRow}>
@@ -37,7 +37,7 @@ export default function DashboardScreen({ navigation }) {
         <TouchableOpacity style={styles.viewAllRow} onPress={() => navigation.navigate('Devices')}>
           <Text style={styles.viewAllText}>View All Devices →</Text>
         </TouchableOpacity>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }
@@ -70,10 +70,8 @@ function DeviceTile({ icon, iconSize = 24, bg, iconColor, title, status }) {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 3, backgroundColor: '#f1f1f1' },
-  container: { flex: 1 },
-  content: { padding: 20, paddingBottom: 40 },
-
+  safe: { flex: 1, backgroundColor: '#f1f1f1' },
+  container: { flex: 1, padding: 20 },
   // Flexbox layout for title row
   titleRow: {
     flexDirection: 'row',
@@ -89,12 +87,12 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 50,
+    paddingVertical: 20,
     marginBottom: 16,
   },
   thermoIconRow: { flexDirection: 'row', alignItems: 'flex-end', marginBottom: 10 },
-  thermoTemp: { fontSize: 46, fontWeight: '900', marginBottom: 6 },
-  thermoLabel: { fontSize: 20, fontWeight: '600' },
+  thermoTemp: { fontSize: 40, fontWeight: '900', marginBottom: 4 },
+  thermoLabel: { fontSize: 18, fontWeight: '600' },
 
   
   grid: {
@@ -102,13 +100,13 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
-  gridItem: { width: '48%', marginBottom: 16 },
+  gridItem: { width: '48%', marginBottom: 12 },
   tile: {
     borderWidth: 3,
     borderColor: '#002a5c',
     borderRadius: 16,
     alignItems: 'center',
-    paddingVertical: 24,
+    paddingVertical: 14,
   },
   tileIconWrap: {
     width: 50,
@@ -118,7 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 10,
   },
-  tileTitle: { fontSize: 26, fontWeight: '800', marginBottom: 4 },
+  tileTitle: { fontSize: 22, fontWeight: '800', marginBottom: 4 },
   tileStatus: { fontSize: 14, fontWeight: '600', color: '#333' },
 
   viewAllRow: { alignItems: 'center', marginTop: 10 },

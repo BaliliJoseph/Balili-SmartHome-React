@@ -17,7 +17,7 @@ export default function SettingsScreen() {
 
         <View style={styles.row}>
           <Text style={styles.rowLabel}>Temperature Unit</Text>
-          <Text style={styles.rowValue}>27°C</Text>
+          <Text style={styles.rowValue}>°C</Text>
         </View>
         <View style={styles.divider} />
       </View>
